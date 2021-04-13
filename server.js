@@ -17,7 +17,7 @@ server.use(express.json())
  // produto/1       (informações passadas também pela url) - request.params
  // corpo da mensagem - request.bory (JSON)  
 
-server.get('/', function(request, response) {
+server.get('/',async function(request, response) {
 
      const contatos = await database.read()
     response.json(contatos);
@@ -30,7 +30,7 @@ server.get('/', function(request, response) {
 //     response.json(result);
 // })
 
-server.post('/', function(request, response) {
+server.post('/',async function(request, response) {
     const {nome, telefone} = request.body;
 
     const result = await database.create(nome,telefone);

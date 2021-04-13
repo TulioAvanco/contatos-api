@@ -31,7 +31,7 @@ ssl: {rejectUnauthorized: false},
 module.exports = {
     async create(nome, telefone) {
         try{
-        const sql = 'INSERT INTO contatos (nome, telefone) VALUES ($1, $2)';
+        const sql = 'INSERT INTO cotatos (nome, telefone) VALUES ($1, $2)';
         const result = await pool.query(sql,[nome,telefone]);
         return result.rows;
         }catch(error){
@@ -42,7 +42,7 @@ module.exports = {
     },
 
     async read() {
-        const sql = `SELECT * FROM contatos order by nome`;
+        const sql = `SELECT * FROM cotatos order by nome`;
         const result = await pool.query(sql);
         return result.rows;
     }
