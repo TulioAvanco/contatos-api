@@ -38,4 +38,23 @@ server.post('/',async function(request, response) {
 
 })
 
+server.put('/:id', async function(request, response){
+    const {id, nome, telefone} = request.params;
+
+    const result = await database.updade(id,nome,telefone);
+    response.status(200).send();
+})
+
+
+server.delete('/:id', async function (request, response){
+    const id = request.params.id;
+    await database.delete(id);
+    response.status(200).send();
+})
+
+
+
+
+
+
 server.listen(process.env.PORT || 3000);
